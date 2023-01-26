@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useCatFact } from './hooks/useCatFact'
 
 export const App = () => {
-  const [fact, setFact] = useState(null)
-  useEffect(() => {
-    fetch(import.meta.env.VITE_CAT_ENDPOINTCAT_FACT)
-      .then(res => res.json())
-      .then(setFact)
-      .catch(console.log)
-  }, [])
+  const { fact, refreshFact } = useCatFact()
+
+  const handleClick = async () => {
+    await refreshFact()
+  }
+
   return (
-    <div>{fact && JSON.stringify(fact)}</div>
+    <main>
+      <div>{fact || 'Loading ...'}</div>
+      <button onClick={handleClick}>Next</button>
+    </main>
   )
 }
