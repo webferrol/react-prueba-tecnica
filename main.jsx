@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client'
+import { App } from './src/App'
 
-const root = createRoot(document.querySelector('#app'))
-
-root.render(<h1>Hi</h1>)
+createRoot(document.querySelector('#app')).render(<App />)
