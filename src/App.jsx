@@ -9,17 +9,17 @@ export const App = () => {
   }
 
   return (
-    <main className='container'>
+    <>
       <div>
         {fact || 'Loading ...'}
-        <button onClick={handleClick}>Next</button>
+        <button className='btn' onClick={handleClick}>Next</button>
       </div>
       <div>{
         !url
           ? 'loading...'
-          : <img src={url} />
+          : <img className='image' src={url} alt={fact} />
         }
       </div>
-    </main>
+    </>
   )
 }
