@@ -43,3 +43,14 @@ Recuerda configurar el fichero __package.json__
 ```
 eslintrc.json donde rc significa:
 "rc stands for run commands." 
+
+## Testing
+- [playwright](https://playwright.dev/docs/intro)
+```sh
+pnpm dlx create-playwright
+```
+
+Ejecutar test:
+```sh
+npx playwright test
+```

@@ -1,16 +1,25 @@
-import { useCatFact } from './hooks/useCatFact'
+import { useCatFact, useCatImage } from './hooks/'
 
 export const App = () => {
   const { fact, refreshFact } = useCatFact()
+  const { url } = useCatImage({ fact })
 
   const handleClick = async () => {
     await refreshFact()
   }
 
   return (
-    <main>
-      <div>{fact || 'Loading ...'}</div>
-      <button onClick={handleClick}>Next</button>
+    <main className='container'>
+      <div>
+        {fact || 'Loading ...'}
+        <button onClick={handleClick}>Next</button>
+      </div>
+      <div>{
+        !url
+          ? 'loading...'
+          : <img src={url} />
+        }
+      </div>
     </main>
   )
 }
